@@ -42,7 +42,7 @@ const config = (platform, launchArgs) => {
 
     target: NativeScriptVueTarget,
 
-    entry: path.resolve(__dirname, './src/main.js'),
+    entry: path.resolve(__dirname, './src/main.ts'),
 
     output: {
       path: path.resolve(__dirname, './dist/app'),
@@ -56,7 +56,12 @@ const config = (platform, launchArgs) => {
           exclude: /(node_modules)/,
           loader: 'babel-loader',
         },
-
+        {
+          test: /\.ts$/,
+          exclude: /(node_modules)/,
+          loader: 'ts-loader',
+          options: { appendTsSuffixTo: [/\.vue$/] }
+        },
         {
           test: /\.css$/,
           use: cssLoader,
@@ -73,6 +78,7 @@ const config = (platform, launchArgs) => {
             loaders: {
               css: cssLoader,
               scss: scssLoader,
+              ts: 'ts-loader'
             },
           },
         },
@@ -80,6 +86,7 @@ const config = (platform, launchArgs) => {
     },
 
     resolve: {
+      alias: { 'vue$': 'nativescript-vue' },
       modules: [
         'node_modules/tns-core-modules',
         'node_modules',
@@ -91,6 +98,8 @@ const config = (platform, launchArgs) => {
         '.scss',
         `.${platform}.js`,
         '.js',
+        `.${platform}.ts`,
+        '.ts',
         `.${platform}.vue`,
         '.vue',
       ],

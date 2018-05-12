@@ -10,27 +10,36 @@
         <Label :text="message" alignSelf="baseline" class="h2"/>
         <Button @tap="increment" text="+" class="btn btn-outline"/>
       </FlexboxLayout>
+        <Button @tap="doMagic" text="Do Some Magic"></Button>
       <Image v-if="surprise" src="~/images/NativeScript-Vue.png"/>
     </StackLayout>
 
   </Page>
 </template>
-
-<script>
-  import { mapActions } from 'vuex';
-
-  export default {
+<script lang="ts">
+import Vue from 'vue'
+import { mapActions } from 'vuex';
+export default Vue.extend({
     computed: {
-      message () {
+      message (): string {
         return this.$store.state.counter.count.toString();
       },
-      surprise () {
+      surprise (): boolean {
         return (this.$store.state.counter.count >= 5);
       },
     },
-    methods: mapActions([
+    methods: {
+      ...mapActions([
       'decrement',
       'increment',
-    ]),
-  };
+      ]),
+      doMagic(){
+        console.log("💩💩💩💩💩💩💩💩💩")
+      }
+    },
+    data: ()=>({
+      hello: 'world'
+    })
+  })
 </script>
+

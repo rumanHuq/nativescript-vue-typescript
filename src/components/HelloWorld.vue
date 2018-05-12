@@ -26,11 +26,9 @@
 </script>
 
 <style scoped>
-  .hello-world {
-    margin: 20;
-  }
+
 
   Label {
-    color: red;
+    color: #bada55;
   }
 </style>
