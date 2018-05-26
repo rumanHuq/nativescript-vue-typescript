@@ -1,16 +1,18 @@
 import Vue from "vue";
-import Vuex from "vuex";
+import Vuex, { Store } from "vuex";
 
 // Stores
-import mainState from "./mainStore";
+import main from "./mainStore";
+
+// namespaced stores
 
 Vue.use(Vuex);
 
 const debug = process.env.NODE_ENV !== "production";
 
-const store = new Vuex.Store({
+const store: Store  = new Vuex.Store({
   modules: {
-    mainState,
+    main,
   },
   strict: debug,
 });

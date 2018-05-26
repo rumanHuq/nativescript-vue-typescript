@@ -1,4 +1,4 @@
-import { GetterTree, MutationTree, ActionTree } from "vuex";
+import { ActionTree, GetterTree, MutationTree } from "vuex";
 import { InterfaceState as State, InterfaceTodo } from "./types";
 
 const mainState: State = {

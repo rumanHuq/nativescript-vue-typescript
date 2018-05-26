@@ -6,10 +6,11 @@ import store from "./store/index";
 
 import "./styles.scss";
 
-// Uncommment the following to see NativeScript-Vue output logs
 // Vue.config.silent = false;
 
-new Vue({
+Vue.registerElement("Gradient", () => require("nativescript-gradient").Gradient);
+
+const app = new Vue({
   router,
   store,
 }).$start();

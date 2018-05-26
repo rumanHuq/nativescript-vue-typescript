@@ -80,6 +80,7 @@ const config = (platform, launchArgs) => {
               scss: scssLoader,
               ts: 'ts-loader'
             },
+            esModule: true
           },
         },
       ],
