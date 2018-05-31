@@ -24,7 +24,7 @@ export default class Hardware extends Lib {
   async getFile(){
     const json = {
       name: "mara",
-      title: "ruman's sexy love"
+      ag: 32
     };
 
     /**
